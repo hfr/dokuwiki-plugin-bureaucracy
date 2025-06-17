@@ -43,7 +43,6 @@ jobs:
 
             - name: Setup PHPUnit
               run: |
-                  php _test/fetchphpunit.php
                   cd _test
 
             - name: Run PHPUnit
