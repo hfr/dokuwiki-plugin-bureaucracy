@@ -42,8 +42,9 @@ jobs:
               run: sh travis.sh
 
             - name: Setup PHPUnit
-              run: |
-                  cd _test
+              uses: php-actions/phpunit@v3
+              with:
+                  memory_limit: "256M"
 
             - name: Run PHPUnit
               run: |
