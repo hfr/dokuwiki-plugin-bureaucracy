@@ -46,7 +46,11 @@ jobs:
               with:
                   memory_limit: "256M"
 
+            - uses: actions/checkout@v3
+            - uses: php-actions/composer@v6
+
             - name: Run PHPUnit
-              run: |
-                cd _test
-                php phpunit.phar --verbose --stderr --group plugin_bureaucracy
+              uses: php-actions/phpunit@master
+              with:
+                  memory_limit: "256M"
+                  args: --verbose --stderr --group plugin_bureaucracy _test
