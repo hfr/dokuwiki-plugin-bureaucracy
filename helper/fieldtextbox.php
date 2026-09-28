@@ -25,7 +25,7 @@ class helper_plugin_bureaucracy_fieldtextbox extends helper_plugin_bureaucracy_f
             $attr['required'] = 'required';
         }
 
-        if(isset($this->opt['readonly'])) {
+        if (isset($this->opt['readonly'])) {
             $attr['readonly'] = 'readonly';
         }
 
