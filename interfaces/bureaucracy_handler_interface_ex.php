@@ -2,8 +2,8 @@
 
 namespace dokuwiki\plugin\bureaucracy\interfaces;
 
-interface bureaucracy_handler_interface_ex {
-
+interface bureaucracy_handler_interface_ex
+{
     /**
      * Handle the data incoming from the form.
      *

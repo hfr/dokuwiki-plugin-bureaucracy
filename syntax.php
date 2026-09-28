@@ -68,33 +68,34 @@ class syntax_plugin_bureaucracy extends SyntaxPlugin
     /**
      * Where to sort in?
      */
-    private function _checkvalidpages($ID, $namespaces) {
+    private function _checkvalidpages($ID, $namespaces)
+    {
         if (count($namespaces)) {
-            $id = explode(':',$ID);
-            foreach($namespaces as $PAT) {
-                $pat = explode(':',$PAT);
-                $found=true;
-                for ($i = 0; $i < count($pat); $i++) {
-                    if ($i>count($id)-1) {
-                        $found=false;
+            $id = explode(':', $ID);
+            foreach ($namespaces as $PAT) {
+                $pat = explode(':', $PAT);
+                $found = true;
+                $counter = count($pat);
+                for ($i = 0; $i < $counter; $i++) {
+                    if ($i > count($id) - 1) {
+                        $found = false;
                         break;
-                    } elseif ($pat[$i]=='**') {
+                    } elseif ($pat[$i] == '**') {
                         break;
-                    } elseif ($pat[$i]=='*') {
+                    } elseif ($pat[$i] == '*') {
                         continue;
-                    } elseif ($pat[$i]!=$id[$i]) {
-                        $found=false;
+                    } elseif ($pat[$i] != $id[$i]) {
+                        $found = false;
                         break;
-                    }            
+                    }
                 }
                 if ($found) {
                     break;
                 }
             }
             return $found;
-        } else {
-            return true;
         }
+        return true;
     }
     /**
      * Connect pattern to lexer

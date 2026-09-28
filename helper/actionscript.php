@@ -45,14 +45,14 @@ Your current scheme <code>$deprecatedClassName</code> is deprecated and will sto
 
         /** @var bureaucracy_handler_interface $handler */
         $handler = new $className();
-
         if ($handler instanceof bureaucracy_handler_interface) {
             return $handler->handleData($fields, $thanks);
-        }       elseif ($handler instanceof bureaucracy_handler_interface_ex) {
-            return $handler->handleData($fields, $thanks, $argv);
-        } else {
-            throw new InvalidArgumentException('The handler must implement the interface <code>dokuwiki\\plugin\\bureaucracy\\interfaces\\bureaucracy_handler_interface</code> !');
         }
+
+        if ($handler instanceof bureaucracy_handler_interface_ex) {
+            return $handler->handleData($fields, $thanks, $argv);
+        }
+        throw new InvalidArgumentException('The handler must implement the interface <code>dokuwiki\\plugin\\bureaucracy\\interfaces\\bureaucracy_handler_interface</code> !');
     }
 
     /**

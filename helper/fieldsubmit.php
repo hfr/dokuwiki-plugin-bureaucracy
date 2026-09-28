@@ -26,7 +26,7 @@ class helper_plugin_bureaucracy_fieldsubmit extends helper_plugin_bureaucracy_fi
         $this->opt['optional'] = true;
     }
 
-    function form_button($attrs)
+    public function form_button($attrs)
     {
         $p = (!empty($attrs['_action'])) ? 'name="do[' . $attrs['_action'] . ']" ' : '';
         $label = $attrs['label'];
@@ -125,6 +125,6 @@ class helper_plugin_bureaucracy_fieldsubmit extends helper_plugin_bureaucracy_fi
      */
     public function getParam($name)
     {
-        return ($name === 'value') ? (($this->hidden)? null : parent::getParam($name)) : parent::getParam($name);
+        return ($name === 'value') ? (($this->hidden) ? null : parent::getParam($name)) : parent::getParam($name);
     }
 }
